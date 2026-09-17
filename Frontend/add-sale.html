@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Sale - Sales Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back Button -->
+    <button id="backButton">Back</button>
+
+
+    <!-- Add Sale Form -->
+    <div id="addSaleContainer">
+
+        <div id="headingDiv">
+            <h1 id="heading">Add Sale</h1>
+        </div>
+
+
+        <div id="addSaleCard">
+
+            <!-- Customer Name -->
+            <div class="saleInputDiv">
+                <label for="customerName">Customer Name</label>
+                <input type="text"
+                       id="customerName"
+                       placeholder="Enter Customer Name">
+            </div>
+
+
+            <!-- Item Price -->
+            <div class="saleInputDiv">
+                <label for="itemPrice">Item Price</label>
+                <input type="number"
+                       id="itemPrice"
+                       placeholder="Enter Item Price"
+                       min="0">
+            </div>
+
+
+            <!-- Quantity -->
+            <div class="saleInputDiv">
+                <label for="quantity">Quantity</label>
+                <input type="number"
+                       id="quantity"
+                       placeholder="Enter Quantity"
+                       min="1">
+            </div>
+
+
+            <!-- Amount Paid -->
+            <div class="saleInputDiv">
+                <label for="amountPaid">Amount Paid</label>
+                <input type="number"
+                       id="amountPaid"
+                       placeholder="Enter Amount Paid"
+                       min="0">
+            </div>
+
+
+            <!-- Total Bill -->
+            <div id="totalBillDiv">
+                <span>Total Bill</span>
+                <strong id="totalBill">0 PKR</strong>
+            </div>
+
+
+            <button id="saveSale">Save Sale</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Error Window -->
+    <div id="errorModal">
+
+        <div id="errorCard">
+
+            <h2>Invalid Amount</h2>
+
+            <p id="errorMessage">
+                Amount paid cannot be greater than the total bill.
+            </p>
+
+            <button id="closeError">OK</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Success Window -->
+    <div id="successModal">
+
+        <div id="successCard">
+
+            <h2>Sale Saved Successfully</h2>
+
+            <p>The sale has been saved successfully.</p>
+
+            <button id="successBack">Back</button>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

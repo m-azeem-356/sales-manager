@@ -1,0 +1,1363 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #111111;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#headingDiv,
+#inputDiv,
+#buttonDiv {
+    width: 100%;
+}
+
+body>div {
+    width: 400px;
+}
+
+#headingDiv {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#heading {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+#inputDiv {
+    background: #1b1b1b;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2d2d2d;
+}
+
+#usernameDiv,
+#passwordDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#usernameDiv {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    background: #111111;
+    color: white;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #666666;
+}
+
+#buttonDiv {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#login,
+#signup,
+#sendCode,
+#verifyCode,
+#resetPassword,
+#backLogIn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#login {
+    background: white;
+    color: #111111;
+}
+
+#signup {
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #3a3a3a;
+}
+
+#login:hover {
+    background: #dddddd;
+}
+
+#signup:hover {
+    background: #333333;
+}
+
+#forgotPassDiv {
+    text-align: center;
+    margin-top: 8px;
+}
+
+#forgotpass {
+    background: none;
+    border: none;
+    color: #888888;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#forgotpass:hover {
+    color: white;
+}
+
+#loginContainer {
+    width: 400px;
+}
+
+#inputDiv {
+    background: #1b1b1b;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2d2d2d;
+}
+
+input {
+    width: 100%;
+}
+
+#buttonDiv {
+    margin-top: 20px;
+}
+
+#login,
+#signup {
+    width: 100%;
+}
+
+#forgotPasswordContainer {
+    width: 400px;
+}
+
+/* Description under heading */
+#headingDiv p {
+    margin-top: 8px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Password fields */
+#newPasswordDiv,
+#confirmPasswordDiv,
+#codeDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#newPasswordDiv {
+    margin-bottom: 20px;
+}
+
+/* Verification code */
+#verificationCode {
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+/* Hide steps initially */
+#codeStep,
+#passwordStep,
+#success {
+    display: none;
+}
+
+#adminContainer {
+    width: 650px;
+}
+
+#headingDiv {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#headingDiv p {
+    margin-top: 8px;
+    color: #888;
+    font-size: 14px;
+}
+
+#adminCard {
+    width: 100%;
+    background: #1b1b1b;
+    padding: 30px;
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#adminCard button {
+    min-height: 65px;
+    padding: 15px;
+    background: #242424;
+    color: white;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+#adminCard button:hover {
+    background: #333;
+    border-color: #555;
+}
+
+/* Log out */
+#logout {
+    grid-column: 1 / -1;
+    margin-top: 5px;
+    background: #1b1b1b !important;
+}
+
+#logout:hover {
+    background: #2a2a2a !important;
+}
+
+#backButton {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+
+    background: none;
+    color: white;
+
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#backButton:hover {
+    color: #aaa;
+}
+
+#dateModal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#dateCard {
+    width: 350px;
+
+    background: #1b1b1b;
+    padding: 30px;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+#dateCard h2 {
+    margin-bottom: 20px;
+}
+
+#saleDate {
+    width: 100%;
+    padding: 13px;
+
+    background: #111;
+    color: white;
+
+    border: 1px solid #333;
+    border-radius: 7px;
+
+    font-size: 15px;
+}
+
+#dateButtons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#dateButtons button {
+    flex: 1;
+    padding: 12px;
+
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#confirmDate {
+    background: white;
+    color: #111;
+    border: none;
+}
+
+#cancelDate {
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #3a3a3a;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    #adminContainer {
+        width: 90%;
+    }
+
+    #adminCard {
+        grid-template-columns: 1fr;
+    }
+
+    #logout {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    #loginContainer {
+        width: 90%;
+    }
+}
+
+/* Add Sale Page */
+
+#addSaleContainer {
+    width: 400px;
+}
+
+#addSaleCard {
+    width: 100%;
+    background: #1b1b1b;
+
+    padding: 30px;
+
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.saleInputDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saleInputDiv input {
+    width: 100%;
+    padding: 13px;
+
+    background: #111;
+    color: white;
+
+    border: 1px solid #333;
+    border-radius: 7px;
+
+    outline: none;
+    font-size: 15px;
+}
+
+.saleInputDiv input:focus {
+    border-color: #777;
+}
+
+
+/* Total Bill */
+
+#totalBillDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 7px;
+}
+
+#totalBillDiv span {
+    color: #aaa;
+}
+
+#totalBill {
+    color: white;
+}
+
+
+/* Save Sale Button */
+
+#saveSale {
+    width: 100%;
+    padding: 13px;
+
+    background: white;
+    color: #111;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#saveSale:hover {
+    background: #ddd;
+}
+
+
+/* Error + Success Modals */
+
+#errorModal,
+#successModal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Modal Cards */
+
+#errorCard,
+#successCard {
+    width: 350px;
+
+    background: #1b1b1b;
+
+    padding: 30px;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+#errorCard h2,
+#successCard h2 {
+    margin-bottom: 12px;
+}
+
+#errorMessage,
+#successCard p {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+/* Modal Buttons */
+
+#errorCard button,
+#successCard button {
+    width: 100%;
+    padding: 12px;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#closeError,
+#successBack {
+    background: white;
+    color: #111;
+    border: none;
+}
+
+#closeError:hover,
+#successBack:hover {
+    background: #ddd;
+}
+
+
+/* Mobile */
+
+@media (max-width: 450px) {
+
+    #addSaleContainer {
+        width: 90%;
+    }
+
+    #errorCard,
+    #successCard {
+        width: 90%;
+    }
+}
+
+.search-name {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#searchContainer {
+    width: 400px;
+    margin-top: 60px;
+}
+
+#searchCard {
+    width: 100%;
+    background: #1b1b1b;
+    padding: 30px;
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#customerName {
+    width: 100%;
+    padding: 13px;
+
+    background: #111;
+    color: white;
+
+    border: 1px solid #333;
+    border-radius: 7px;
+
+    outline: none;
+    font-size: 15px;
+}
+
+#customerName:focus {
+    border-color: #777;
+}
+
+#customerName::placeholder {
+    color: #666;
+}
+
+@media (max-width: 450px) {
+
+    #searchContainer {
+        width: 90%;
+    }
+
+}
+
+#addUserContainer {
+    width: 400px;
+}
+
+.userInputDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.userInputDiv:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+#emailMessage {
+    color: #777;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+#userVerificationCode {
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+#nextUserDetails,
+#sendUserCode,
+#confirmUser {
+    width: 100%;
+    padding: 13px;
+
+    background: white;
+    color: #111;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#nextUserDetails:hover,
+#sendUserCode:hover,
+#confirmUser:hover {
+    background: #ddd;
+}
+
+#userEmailStep,
+#userCodeStep {
+    display: none;
+}
+
+@media (max-width: 450px) {
+    #addUserContainer {
+        width: 90%;
+    }
+}
+
+.sales-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.sales-page h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+}
+
+/* Table Container */
+.sales-table-container {
+    width: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Table */
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+/* Header */
+.sales-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sales-table th {
+    padding: 16px 14px;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+/* Rows */
+.sales-table td {
+    padding: 14px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Paid Row */
+.sales-table tbody tr.paid {
+    background: #e8f7ed;
+}
+
+/* Unpaid Row */
+.sales-table tbody tr.unpaid {
+    background: #fdeaea;
+}
+
+/* Actions */
+.action-button {
+    padding: 7px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.delete-button {
+    background: #dc3545;
+    color: white;
+}
+
+.edit-button {
+    background: #444;
+    color: white;
+}
+
+.action-button:hover {
+    opacity: 0.8;
+}
+
+/* =========================
+   SALES PAGE
+   ========================= */
+
+.sales-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+
+/* =========================
+   PAGE TITLE
+   ========================= */
+
+.sales-page h1 {
+    text-align: center;
+    margin-bottom: 35px;
+
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   TABLE CONTROLS
+   ========================= */
+
+.table-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.select-all-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 12px;
+
+    background: white;
+    color: #222;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.select-all-control:hover {
+    background: #f4f4f4;
+}
+
+#select-all {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   TABLE CONTAINER
+   ========================= */
+
+.sales-table-container {
+    width: 100%;
+    max-height: 600px;
+
+    overflow-y: auto;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   TABLE
+   ========================= */
+
+.sales-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+}
+
+
+/* =========================
+   TABLE HEADER
+   ========================= */
+
+.sales-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sales-table th {
+    padding: 15px 14px;
+
+    background: #222;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   CHECKBOX COLUMN
+   ========================= */
+
+.checkbox-column {
+    width: 40px;
+
+    text-align: center !important;
+
+    display: none;
+}
+
+
+/* =========================
+   SALE ROWS
+   ========================= */
+
+.sales-table tbody tr {
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.sales-table tbody tr:hover {
+    transform: scale(1.002);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   SALE CELLS
+   ========================= */
+
+.sales-table td {
+    padding: 14px;
+
+    font-size: 14px;
+
+    color: #222;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   CUSTOMER NAME
+   ========================= */
+
+.customer-name {
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* =========================
+   PAID ROW
+   ========================= */
+
+.sales-table tbody tr.paid {
+    background: #e8f7ed;
+}
+
+
+/* =========================
+   UNPAID ROW
+   ========================= */
+
+.sales-table tbody tr.unpaid {
+    background: #fdeaea;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
+.status-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+.paid .status-badge {
+    background: #b8e6c5;
+    color: #176b2c;
+}
+
+.unpaid .status-badge {
+    background: #f4baba;
+    color: #8b1e1e;
+}
+
+
+/* =========================
+   SALE CHECKBOX
+   ========================= */
+
+.sale-checkbox {
+    width: 16px;
+    height: 16px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ACTIONS
+   ========================= */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+
+.action-button {
+    padding: 6px 10px;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+}
+
+.action-button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+
+/* Edit */
+
+.edit-button {
+    background: #444;
+    color: white;
+}
+
+
+/* Delete */
+
+.delete-button {
+    background: #dc3545;
+    color: white;
+}
+
+.multiple-delete-button {
+    display: none;
+
+    padding: 8px 12px;
+
+    background: #dc3545;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+.multiple-delete-button:hover {
+    opacity: 0.85;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+/* =========================
+   EDIT MODAL
+   ========================= */
+
+.edit-modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   EDIT BOX
+   ========================= */
+
+.edit-box {
+    width: 360px;
+
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+.edit-box h2 {
+    margin: 0 0 20px;
+
+    text-align: center;
+
+    font-size: 24px;
+}
+
+
+/* Customer */
+
+.edit-customer-name {
+    margin-bottom: 8px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #222;
+}
+
+/* 
+.error-amount{
+    display: none;
+} */
+
+
+/* Remaining */
+
+.remaining-text {
+    margin-bottom: 22px;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+#edit-remaining {
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* Input label */
+
+.edit-box label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* Input */
+
+#new-payment {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+#new-payment:focus {
+    border-color: #555;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.edit-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+
+.cancel-edit-button,
+.save-edit-button {
+    padding: 9px 15px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.cancel-edit-button {
+    background: #e5e5e5;
+
+    color: #222;
+}
+
+
+.save-edit-button {
+    background: #222;
+
+    color: white;
+}
+
+
+.cancel-edit-button:hover,
+.save-edit-button:hover {
+    opacity: 0.85;
+}
+
+.delete-modal2,
+.delete-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.delete-box {
+    width: 360px;
+    padding: 28px;
+
+    background: #1b1b1b;
+    color: white;
+
+    border-radius: 12px;
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.delete-box h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.delete-box p {
+    color: #ccc;
+}
+
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cancel-delete-button,
+.confirm-delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cancel-delete-button {
+    background: #333;
+    color: white;
+}
+
+.confirm-delete-button {
+    background: #d32f2f;
+    color: white;
+}
+
+
+
+.user-error-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.user-error-box {
+    width: 360px;
+    padding: 28px;
+
+    background: #1b1b1b;
+    color: white;
+
+    border-radius: 12px;
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.user-error-box h2 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+#user-error-message {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.close-user-error-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+
+    background: #333;
+    color: white;
+
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#adminOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+#adminChecked {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#adminOption label {
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}

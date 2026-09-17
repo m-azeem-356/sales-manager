@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Sales - Sales Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="search-name">
+    <button id="backButton">Back</button>
+
+    <div id="searchContainer">
+
+        <div id="headingDiv">
+            <h1 id="heading">Search Sales</h1>
+            <p>Search sales by customer name.</p>
+        </div>
+
+        <div id="searchCard">
+
+            <div class="searchInputDiv">
+                <label for="customerName">Customer Name</label>
+
+                <input type="text" id="customerName" placeholder="Enter Customer Name">
+            </div>
+
+        </div>
+
+    </div>
+    <main class="sales-page">
+
+        <h1>Sale Data</h1>
+
+        <div class="table-controls">
+
+            <button id="multiple-delete" class="multiple-delete-button">
+                Multiple Delete
+            </button>
+
+            <label class="select-all-control">
+                <input type="checkbox" id="select-all">
+                <span>Select Multiple</span>
+            </label>
+
+        </div>
+
+        <div class="sales-table-container">
+
+            <table class="sales-table">
+
+                <thead>
+                    <tr>
+                        <th class="checkbox-column">✓</th>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Total</th>
+                        <th>Paid</th>
+                        <th>Remaining</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="sales-body">
+                    <!-- Sales will be added here later -->
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Edit Sale Modal -->
+
+        <div id="edit-modal" class="edit-modal">
+
+            <div class="edit-box">
+
+                <h2>Edit Sale</h2>
+
+                <p id="edit-customer-name" class="edit-customer-name">
+                    Customer Name
+                </p>
+
+                <p class="remaining-text">
+                    Remaining:
+                    <span id="edit-remaining">0</span>
+                </p>
+
+                <label id="label-for-amount">
+                    New Amount
+                </label>
+
+                <input type="number" id="new-payment" min="0" placeholder="Enter amount">
+
+                <div class="edit-actions">
+
+                    <button id="cancel-edit" class="cancel-edit-button">
+                        Cancel
+                    </button>
+
+                    <button id="save-edit" class="save-edit-button">
+                        Save
+                    </button>
+                </div>
+                <div>
+                    <p id="error-amount" style="color: red; font-size: 20px; display:none">
+                        Entered Amount should be less than remaining amount.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="delete-modal" class="delete-modal">
+            <div class="delete-box">
+                <h2>Delete Sale?</h2>
+
+                <p>Are you sure you want to delete this sale?</p>
+
+                <div class="delete-actions">
+                    <button id="cancel-delete" class="cancel-delete-button">
+                        Cancel
+                    </button>
+
+                    <button id="confirm-delete" class="confirm-delete-button">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="delete-modal2" class="delete-modal2">
+            <div class="delete-box">
+                <h2>Delete all Sales?</h2>
+
+                <p>Are you sure you want to delete selected sales?</p>
+
+                <div class="delete-actions">
+                    <button id="cancel-delete-m" class="cancel-delete-button">
+                        Cancel
+                    </button>
+
+                    <button id="confirm-delete-m" class="confirm-delete-button">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

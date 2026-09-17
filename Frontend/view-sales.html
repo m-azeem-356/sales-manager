@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Sales - Sales Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="backButton">Back</button>
+    <div id="adminContainer">
+        <div id="headingDiv">
+            <h1 id="heading">Showing Sales</h1>
+        </div>
+        <div id="adminCard">
+            <button id="searchName">Search By Name</button>
+            <button id="searchDate">Search By Date</button>
+            <button id="searchUnpaid">Show Unpaid Sales</button>
+            <button id="searchPaid">Show Fully Paid Sales</button>
+            <button id="searchAll">Show All Sales</button>
+        </div>
+    </div>
+    <div id="dateModal"> 
+        <div id="dateCard"> 
+            <h2>Select Date</h2> 
+            <input type="date" id="saleDate"> 
+            <div id="dateButtons"> 
+                <button id="confirmDate">Search</button> 
+                <button id="cancelDate">Cancel</button> 
+            </div> 
+        </div> 
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

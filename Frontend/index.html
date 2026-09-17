@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log IN - Sales Manager</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="loginContainer">
+
+        <div id="headingDiv">
+            <h1 id="heading">Sales Manager</h1>
+        </div>
+
+        <div id="inputDiv">
+            <div id="usernameDiv">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter Username">
+            </div>
+
+            <div id="passwordDiv">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+            </div>
+            <div id="errorText">
+                <p id="error"></p>
+            </div>
+        </div>
+
+        <div id="buttonDiv">
+            <button id="login">Log In</button>
+
+            <div id="forgotPassDiv">
+                <button id="forgotpass">Forgot Password?</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="user-error-modal" class="user-error-modal">
+        <div class="user-error-box">
+            <h2>Error</h2>
+
+            <p id="user-error-message"></p>
+
+            <button id="close-user-error" class="close-user-error-button">
+                Close
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
