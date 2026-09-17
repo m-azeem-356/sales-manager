@@ -1,0 +1,39 @@
+name: Build Windows App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Build JAR
+        run: .\mvnw.cmd clean package -DskipTests
+
+      - name: Create EXE
+        run: |
+          jpackage `
+            --input target `
+            --name "Sales Manager" `
+            --main-jar sale-manager-0.0.1-SNAPSHOT.jar `
+            --main-class org.springframework.boot.loader.launch.JarLauncher `
+            --type exe `
+            --dest output `
+            --win-shortcut `
+            --win-menu
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sales-Manager-Windows
+          path: output/*.exe

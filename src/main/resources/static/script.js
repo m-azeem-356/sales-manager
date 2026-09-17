@@ -40,14 +40,15 @@ if (forgPass) {
 const sendCodeButton = document.getElementById("sendCode");
 let resetUsername;
 let newPassword;
-let resePassCode;
+let resePassCode = -1;
 if (sendCodeButton) {
     sendCodeButton.addEventListener("click", () => {
+        sendCodeButton.disabled = true;
         resetUsername = document.getElementById("username").value;
         if (resetUsername === "") {
             return;
         }
-        fetch(`http://localhost:8080/reset/password/${encodeURIComponent(resetUsername)}`, {
+        fetch(`/reset/password/${encodeURIComponent(resetUsername)}`, {
             method: "GET"
         })
             .then(response => response.json())
@@ -56,17 +57,19 @@ if (sendCodeButton) {
                     document.getElementById("usernameStep").style.display = "block";
                     document.getElementById("username").value = "";
                     document.getElementById("username").placeholder = "User Not Found";
+                    sendCodeButton.disabled = false;
                     return;
                 }
                 else {
                     resePassCode = data;
+                    document.getElementById("codeStep").style.display = "block";
+                    document.getElementById("usernameStep").style.display = "none";
                 }
             })
             .catch(error => {
                 console.error(error);
             });
-        document.getElementById("codeStep").style.display = "block";
-        document.getElementById("usernameStep").style.display = "none";
+
     });
 }
 
@@ -97,8 +100,9 @@ if (resetPassButton) {
         else if (psp1 !== psp2) {
             document.getElementById("user-error-message").textContent = "Passwords do not match";
             errorWindow.style.display = "flex";
+            return;
         }
-        fetch(`http://localhost:8080/change/Password?username=${encodeURIComponent(resetUsername)}&password=${encodeURIComponent(psp1)}`, {
+        fetch(`/change/Password?username=${encodeURIComponent(resetUsername)}&password=${encodeURIComponent(psp1)}`, {
             method: "GET"
         })
             .then(response => response.json())
@@ -124,7 +128,7 @@ const backLogInButton = document.getElementById("backLogIn");
 
 if (backLogInButton) {
     backLogInButton.addEventListener("click", () => {
-        window.location.href = "index.html";
+        window.history.back();
     });
 }
 
@@ -224,7 +228,7 @@ if (confirmAccountButton) {
             return;
         }
 
-        fetch(`http://localhost:8080/user/exist/${encodeURIComponent(username)}`)
+        fetch(`/user/exist/${encodeURIComponent(username)}`)
             .then(response => response.json())
             .then(exists => {
                 if (exists) {
@@ -271,7 +275,7 @@ if (confirmEmailButton) {
             return;
         }
 
-        fetch(`http://localhost:8080/user/email/${encodeURIComponent(email)}`)
+        fetch(`/user/email/${encodeURIComponent(email)}`)
             .then(response => response.json())
             .then(exists => {
                 if (exists) {
@@ -280,7 +284,7 @@ if (confirmEmailButton) {
                     return;
                 }
                 else {
-                    fetch(`http://localhost:8080/send/code/${encodeURIComponent(email)}`)
+                    fetch(`/send/code/${encodeURIComponent(email)}`)
                         .then(response => response.json())
                         .then(code => {
                             confirmationCode = code;
@@ -302,7 +306,7 @@ if (confirmUserButton) {
             errorWindow.style.display = "flex";
             return;
         }
-        fetch(`http://localhost:8080/signup?username=${encodeURIComponent(username)}&password=${encodeURIComponent(pass1)}&email=${encodeURIComponent(email)}&role=${encodeURIComponent(role)}`, {
+        fetch(`/signup?username=${encodeURIComponent(username)}&password=${encodeURIComponent(pass1)}&email=${encodeURIComponent(email)}&role=${encodeURIComponent(role)}`, {
             method: "POST"
         })
             .then(response => response.json())
@@ -336,16 +340,16 @@ function display() {
     const type = params.get("type");
     const date = params.get("date");
 
-    let url = "http://localhost:8080/sales";
+    let url = "/sales";
     if (type === "unpaid") {
-        url = "http://localhost:8080/sales/unpaid";
+        url = "/sales/unpaid";
     }
 
     else if (type === "paid") {
-        url = "http://localhost:8080/sales/paid";
+        url = "/sales/paid";
     }
     else if (date) {
-        url = `http://localhost:8080/sales/customer/date/${date}`;
+        url = `/sales/customer/date/${date}`;
     }
 
     if (tableBody) {
@@ -534,7 +538,7 @@ if (saveEditButton) {
             return;
         }
 
-        fetch(`http://localhost:8080/sales/${changeData.id}/payment?amount=${amount}&remaining=${changeData.remaining}&prevPaid=${changeData.paid}`, {
+        fetch(`/sales/${changeData.id}/payment?amount=${amount}&remaining=${changeData.remaining}&prevPaid=${changeData.paid}`, {
             method: "PUT"
         })
             .then(response => response.text())
@@ -580,7 +584,7 @@ if (cancelDeleteButton) {
 }
 if (confirmDeleteButton) {
     confirmDeleteButton.addEventListener("click", () => {
-        fetch(`http://localhost:8080/sales/${deleteId}`, {
+        fetch(`/sales/${deleteId}`, {
             method: "DELETE"
         })
             .then(response => response.text())
@@ -618,7 +622,7 @@ if (cancelDeleteButton2) {
 
 if (confirmDeleteButton2) {
     confirmDeleteButton2.addEventListener("click", () => {
-        fetch("http://localhost:8080/sales", {
+        fetch("/sales", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -644,7 +648,7 @@ if (confirmDeleteButton2) {
 }
 
 function displayByName(name) {
-    let url = `http://localhost:8080/sales/customer/${name}`;
+    let url = `/sales/customer/${name}`;
     const container = document.getElementById("sales-container");
 
     const tableBody = document.getElementById("sales-body");
@@ -758,7 +762,7 @@ if (saveSaleButton) {
         }
 
         document.getElementById("totalBill").textContent = totalBill + " PKR";
-        fetch(`http://localhost:8080/sales?quantity=${quantity}&customerName=${encodeURIComponent(customerName)}&unitPrice=${itemPrice}&amountPaid=${amountPaid}`, {
+        fetch(`/sales?quantity=${quantity}&customerName=${encodeURIComponent(customerName)}&unitPrice=${itemPrice}&amountPaid=${amountPaid}`, {
             method: "POST"
         })
             .then(response => response.text())
@@ -796,7 +800,7 @@ if (loginButton) {
         if (loginUsername === "" || loginPassword === "") {
             return;
         }
-        fetch(`http://localhost:8080/login?username=${encodeURIComponent(loginUsername)}&password=${encodeURIComponent(loginPassword)}`, {
+        fetch(`/login?username=${encodeURIComponent(loginUsername)}&password=${encodeURIComponent(loginPassword)}`, {
             method: "POST"
         })
             .then(response => response.text())

@@ -40,7 +40,7 @@ public class AuthService {
 
     private int generateCode() {
         SecureRandom random = new SecureRandom();
-        return 100000 + random.nextInt(990000);
+        return 100000 + random.nextInt(899999);
     }
 
     public int sendCode(String email) {
