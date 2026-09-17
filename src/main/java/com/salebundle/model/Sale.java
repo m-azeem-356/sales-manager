@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Sale {
@@ -23,8 +24,11 @@ public class Sale {
 
     public Sale(int quantity, String customerName, int unitPrice, int amountPaid) {
 
-        this.saleDate = LocalDate.now().toString();
-        this.saleTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
+        ZoneId pakistanZone = ZoneId.of("Asia/Karachi");
+
+        this.saleDate = LocalDate.now(pakistanZone).toString();
+        this.saleTime = LocalTime.now(pakistanZone)
+                .format(DateTimeFormatter.ofPattern("HH:mm"));
         this.quantity = quantity;
         this.customerName = customerName;
         this.unitPrice = unitPrice;
