@@ -3,7 +3,7 @@ package com.salebundle.model;
 public class User {
     private String username;
     private String email;
-    private String password;
+    private String password_hash;
     private String role;
 
     public User() {
@@ -11,7 +11,7 @@ public class User {
     public User(String username, String email, String password, String role) {
         this.username = username;
         this.email = email;
-        this.password = password;
+        this.password_hash = password;
         this.role = role;
     }
 
@@ -24,7 +24,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return password_hash;
     }
 
     public String getRole() {
@@ -40,7 +40,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password_hash = password;
     }
 
     public void setRole(String role) {
@@ -49,6 +49,6 @@ public class User {
 
     @Override
     public String toString(){
-        return "{ Username: "+this.username+" Email: "+this.email+" Password: "+this.password+" Role: "+this.role+" }";
+        return "{ Username: "+this.username+" Email: "+this.email+" Password: "+this.password_hash+" Role: "+this.role+" }";
     }
 }
